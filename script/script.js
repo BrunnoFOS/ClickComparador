@@ -11,15 +11,14 @@ async function compararArquivos() {
 
     const [dados1, dados2] = await Promise.all([lerArquivo(arq_1), lerArquivo(arq_2)]);
 
-    const numeros1 = buscarContatosNaPlanilha(dados1);
-    const numeros2 = buscarContatosNaPlanilha(dados2);
+    const numeros1 = buscarContatosNaPlanilha(dados1)
 
-    const numerosUnicos = numeros2.filter(numero => !numeros1.includes(numero));
+    const pessoas_unicas = dados2.filter(pessoa => !numeros1.includes(pessoa.number || pessoa.numero));
 
-    if (numerosUnicos.length === 0) {
+    if (pessoas_unicas.length === 0) {
         mostrarModal('Todas as linhas da segunda planilha estão presentes na primeira.');
     } else {
-        gerarXLSX(numerosUnicos);
+        gerarXLSX(pessoas_unicas);
     }
 }
 
@@ -46,10 +45,10 @@ function buscarContatosNaPlanilha(dados) {
 }
 
 function gerarXLSX(dados) {
-    const worksheet = XLSX.utils.aoa_to_sheet([['number'], ...dados.map(dado => [dado])]);
+    const worksheet = XLSX.utils.json_to_sheet(dados);
     const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'NumerosUnicos');
-    XLSX.writeFile(workbook, 'numeros_unicos.xlsx');
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'pessoas_funil');
+    XLSX.writeFile(workbook, 'pessoas_funil.xlsx');
 }
 
 function mostrarModal(mensagem) {

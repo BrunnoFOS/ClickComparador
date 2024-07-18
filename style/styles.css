@@ -4,13 +4,13 @@
     box-sizing: border-box;
 }
 
-
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    line-height: 1.6;
+    background-color: #f4f7f9;
+    color: #333;
 }
 
 form {
@@ -18,6 +18,7 @@ form {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    width: 100%;
 }
 
 button {
@@ -37,20 +38,23 @@ button {
 }
 
 .modal-conteudo {
-    background-color: #fefefe;
+    background-color: #fff;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border-radius: 8px;
     width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
 
 header {
-    background-color: #97ccf5;
+    background-color: #3498db;
     text-align: center;
     padding: 20px 0;
     margin-bottom: 20px;
     width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo-container {
@@ -58,56 +62,53 @@ header {
 }
 
 .logo-container img {
-    max-width: 52%;
+    max-width: 150px;
     height: auto;
 }
 
 .container {
     max-width: 800px;
+    width: 90%;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff; 
+    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .container label {
-    display: block; 
-    margin-bottom: 10px; 
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.container input[type="file"] {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 16px;
 }
 
 button {
     display: block;
     width: 100%;
-    padding: 10px;
-    margin-top: 10px;
+    padding: 12px;
     font-size: 18px;
     background-color: #3498db;
-    color: #ffffff;
+    color: #fff;
     border: none;
-    border-radius: 18px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #22455c;
-    transform: translateY(-5px); 
+    background-color: #2980b9;
+    transform: translateY(-3px);
 }
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-}
-
 
 @media (max-width: 768px) {
     .container {
@@ -120,12 +121,7 @@ button:hover {
         padding: 10px;
     }
     
-    textarea {
-        font-size: 14px;
-    }
-    
-    button {
+    label, input[type="file"], button {
         font-size: 16px;
     }
 }
-

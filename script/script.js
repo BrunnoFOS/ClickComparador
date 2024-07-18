@@ -47,8 +47,8 @@ function buscarContatosNaPlanilha(dados) {
 function gerarXLSX(dados) {
     const worksheet = XLSX.utils.json_to_sheet(dados);
     const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'pessoas_funil');
-    XLSX.writeFile(workbook, 'pessoas_funil.xlsx');
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'contatos_para_incluir');
+    XLSX.writeFile(workbook, 'contatos_para_incluir.xlsx');
 }
 
 function mostrarModal(mensagem) {

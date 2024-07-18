@@ -80,7 +80,11 @@ header {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #555;
+    color: #363434;
+}
+
+.container span {
+    color: #2980b9;
 }
 
 .container input[type="file"] {

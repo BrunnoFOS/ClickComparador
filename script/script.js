@@ -13,7 +13,7 @@ async function compararArquivos() {
 
     const numeros1 = buscarContatosNaPlanilha(dados1)
 
-    const pessoas_unicas = dados2.filter(pessoa => !numeros1.includes(pessoa.number || pessoa.numero));
+    const pessoas_unicas = dados2.filter(pessoa => !numeros1.includes(pessoa.number || pessoa.numero || pessoa.Numero || pessoa.Number));
 
     if (pessoas_unicas.length === 0) {
         mostrarModal('Todas as linhas da segunda planilha estão presentes na primeira.');
@@ -41,7 +41,7 @@ function lerArquivo(arquivo) {
 }
 
 function buscarContatosNaPlanilha(dados) {
-    return dados.map(linha => linha.number || linha.numero).filter(Boolean);
+    return dados.map(linha => linha.number  || linha.Number || linha.numero || linha.Numero).filter(Boolean);
 }
 
 function gerarXLSX(dados) {

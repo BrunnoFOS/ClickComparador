@@ -16,7 +16,7 @@ async function compararArquivos() {
     const pessoas_unicas = dados2.filter(pessoa => !numeros1.includes(pessoa.number || pessoa.numero || pessoa.Numero || pessoa.Number));
 
     if (pessoas_unicas.length === 0) {
-        mostrarModal('Todas as linhas da segunda planilha estão presentes na primeira.');
+        mostrarModal('Todos os contatos da segunda planilha já estão inclusos na sua base de contatos.');
     } else {
         gerarXLSX(pessoas_unicas);
     }
